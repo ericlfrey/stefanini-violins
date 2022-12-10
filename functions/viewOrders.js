@@ -4,9 +4,7 @@ import clearDOM from '../utils/clearDOM';
 
 const viewOrders = () => {
   clearDOM();
-  getAllOrders().then((orders) => {
-    viewOrdersPage(orders);
-  });
+  getAllOrders().then(viewOrdersPage);
 };
 
 export default viewOrders;

@@ -1,4 +1,3 @@
-import { deleteOrder, getAllOrders, getSingleOrder } from '../api/orderData';
 import renderToDOM from '../utils/renderToDOM';
 
 const viewOrdersPage = (arr) => {
@@ -25,24 +24,7 @@ const viewOrdersPage = (arr) => {
   `;
   });
   renderToDOM('#orderCards', cardString);
-  document.querySelector('#main').addEventListener('click', (e) => {
-    const [, firebaseKey] = e.target.id.split('--');
-    if (e.target.id.includes('deleteOrder')) {
-      deleteOrder(firebaseKey).then(() => {
-        getAllOrders().then((orders) => {
-          viewOrdersPage(orders);
-        });
-      });
-    }
-    if (e.target.id.includes('orderDetails')) {
-      getSingleOrder(firebaseKey).then((item) => {
-        console.warn(item);
-      });
-    }
-    if (e.target.id.includes('orderEdit')) {
-      console.warn(firebaseKey);
-    }
-  });
+  // domEvents();
 };
 
 export default viewOrdersPage;

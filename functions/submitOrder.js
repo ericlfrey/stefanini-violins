@@ -1,7 +1,8 @@
 import { patchOrder, postOrder } from '../api/orderData';
 import viewOrders from './viewOrders';
 
-const submitOrder = () => {
+const submitOrder = (e) => {
+  e.preventDefault();
   const payload = {
     name: document.querySelector('#createOrderName').value,
     phone: document.querySelector('#createOrderPhone').value,
@@ -10,10 +11,9 @@ const submitOrder = () => {
     statusOpen: true,
     items: ''
   };
+  console.warn(payload);
   postOrder(payload).then(({ name }) => {
-    const patchPayload = {
-      firebaseKey: name
-    };
+    const patchPayload = { firebaseKey: name };
     patchOrder(patchPayload).then(viewOrders);
   });
 };
