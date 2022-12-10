@@ -1,0 +1,47 @@
+{
+  "-NIrhDq_ztdFZ7Ug_40x": {
+    "firebaseKey": "d3015fff-8827-4369-a270-f6a8cfcfd0e0",
+    "date": "08/10/2022",
+    "orderType": "pickup",
+    "orderId": "",
+    "paymentType": "cash",
+    "total": "$7.81",
+    "tip": "$3.41"
+  },
+  "-NIrhDqbA3UgJ-dSpxCy": {
+    "firebaseKey": "440c975d-7320-4b41-bf42-b1ecca97e9ba",
+    "date": "06/29/2022",
+    "orderType": "pickup",
+    "orderId": "",
+    "paymentType": "credit",
+    "total": "$9.98",
+    "tip": "$4.70"
+  },
+  "-NIrhDqfPX5OD1b6K29V": {
+    "firebaseKey": "3fb0a02b-8e0d-4c36-810b-8a5567addbb8",
+    "date": "05/03/2022",
+    "orderType": "phone",
+    "orderId": "",
+    "paymentType": "mobile",
+    "total": "$6.60",
+    "tip": "$2.53"
+  },
+  "-NIrhE65VAqldgGfxlmK": {
+    "firebaseKey": "24922009-8b5a-4afc-a774-bea089869d36",
+    "date": "06/24/2022",
+    "orderType": "phone",
+    "orderId": "",
+    "paymentType": "debit",
+    "total": "$1.90",
+    "tip": "$2.54"
+  },
+  "-NIrhE68UujA6YVHtZ4e": {
+    "firebaseKey": "60a1e01c-246d-4ae5-aa5a-d7fa17835c2b",
+    "date": "06/21/2022",
+    "orderType": "pickup",
+    "orderId": "",
+    "paymentType": "debit",
+    "total": "$5.17",
+    "tip": "$0.26"
+  }
+}
