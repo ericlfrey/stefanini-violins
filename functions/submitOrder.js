@@ -1,5 +1,5 @@
 import { patchOrder, postOrder } from '../api/orderData';
-import viewOrders from './viewOrders';
+// import { viewOrders } from '';
 
 const submitOrder = () => {
   const payload = {
@@ -10,11 +10,10 @@ const submitOrder = () => {
     statusOpen: true,
     items: ''
   };
+  console.warn(payload);
   postOrder(payload).then(({ name }) => {
-    const patchPayload = {
-      firebaseKey: name
-    };
-    patchOrder(patchPayload).then(viewOrders);
+    const patchPayload = { firebaseKey: name };
+    patchOrder(patchPayload).then();
   });
 };
 
