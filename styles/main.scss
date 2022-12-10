@@ -9,7 +9,17 @@ body {
   // margin-top: 100px;
 }
 
+#loginLogo {
+  height: 300px;
+  border-radius: 50%;
+}
+
+#loginImage {
+  margin: 50px;
+}
+
 .navbar-nav {
+  margin-left: 30px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -33,4 +43,27 @@ body {
 
 .welcome-pg-btn {
   width: 100%;
+}
+
+#orderCards {
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+
+  .card {
+    width: 300px;
+    margin: 15px;
+  }
+
+  .card-text {
+    font-size: 18px;
+  }
+}
+
+#formContainer {
+  width: 60%;
+  margin: auto;
 }

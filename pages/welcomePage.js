@@ -17,11 +17,11 @@ const welcomePage = (user) => {
   `;
   renderToDOM('#main', domString);
   // VIEW ORDERS
-  button('#viewOrdersBtnDiv', 'btn btn-success welcome-pg-btn', 'viewOrdersBtn', 'View Orders', viewOrders);
+  button('#viewOrdersBtnDiv', 'button', 'btn btn-success welcome-pg-btn', 'viewOrdersBtn', 'View Orders', viewOrders);
   // CREATE ORDER
-  button('#createOrderBtnDiv', 'btn btn-info welcome-pg-btn', 'createOrderBtn', 'Create Order', createOrder);
+  button('#createOrderBtnDiv', 'button', 'btn btn-info welcome-pg-btn', 'createOrderBtn', 'Create Order', createOrder);
   // VIEW REVENUE
-  button('#viewRevenueBtnDiv', 'btn btn-warning welcome-pg-btn', 'viewRevenueBtn', 'View Revenue', viewRevenue);
+  button('#viewRevenueBtnDiv', 'button', 'btn btn-warning welcome-pg-btn', 'viewRevenueBtn', 'View Revenue', viewRevenue);
 };
 
 export default welcomePage;

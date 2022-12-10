@@ -1,11 +1,13 @@
 import renderToDOM from '../utils/renderToDOM';
 
-const button = (divId, className, id, text, funcName) => {
+const button = (divId, type, className, id, text, funcName) => {
   const btnString = `
-  <button type="button" class="btn btn-${className}" id=${id}>${text}</button>
+  <button type=${type} class="btn btn-${className}" id=${id}>${text}</button>
   `;
   renderToDOM(divId, btnString);
-  document.querySelector(`#${id}`).addEventListener('click', funcName);
+  if (id) {
+    document.querySelector(`#${id}`).addEventListener('click', funcName);
+  }
 };
 
 export default button;

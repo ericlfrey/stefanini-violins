@@ -4,9 +4,8 @@ import clearDOM from '../utils/clearDOM';
 
 const viewOrders = () => {
   clearDOM();
-  getAllOrders().then((order) => {
-    console.warn(order);
-    viewOrdersPage();
+  getAllOrders().then((orders) => {
+    viewOrdersPage(orders);
   });
 };
 
