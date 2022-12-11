@@ -27,8 +27,10 @@ const createOrderPage = (obj = {}) => {
   input('#createOrderPhoneDiv', 'phone', 'form-control', 'Customer Phone', 'createOrderPhone', 'required', true, `${obj.phone ? `${obj.phone}` : ''}`);
   input('#createOrderEmailDiv', 'email', 'form-control', 'Customer Email', 'createOrderEmail', 'required', true, `${obj.email ? `${obj.email}` : ''}`);
   select('#createOrderSelectDiv', 'form-select', 'createOrderSelect', 'required', ['In Person', 'Phone'], true, 'Order Type');
+  if (obj.orderType) {
+    document.querySelector('#createOrderSelect').value = obj.orderType;
+  }
   button('#createOrderFormBtn', 'submit', 'btn btn-primary', '', 'Submit', '');
 };
 
 export default createOrderPage;
-// divId, type, inputClass, placeholder, id, required, label, value
