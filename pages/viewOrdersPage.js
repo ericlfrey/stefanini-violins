@@ -24,7 +24,6 @@ const viewOrdersPage = (arr) => {
   `;
   });
   renderToDOM('#orderCards', cardString);
-  // domEvents();
 };
 
 export default viewOrdersPage;
