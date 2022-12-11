@@ -5,9 +5,7 @@ const input = (divId, type, inputClass, placeholder, id, required, label, value)
     <label for=${id} class="form-label">${placeholder}</label>
     <input type=${type} placeholder="${placeholder}" class="${inputClass}" id=${id} ${required} value="${value}">
   `
-    : `
-    <input type=${type} placeholder=${placeholder} class="${inputClass}" id=${id} ${required}/>
-  `;
+    : `<input type=${type} placeholder=${placeholder} class="${inputClass}" id=${id} ${required}/>`;
   renderToDOM(divId, domString);
 };
 

@@ -18,7 +18,7 @@ const viewOrdersPage = (arr) => {
     <p class="card-text">${item.orderType}</p>
     <a href="#" class="card-link" id="orderDetails--${item.firebaseKey}">Details</a>
     <a href="#" class="card-link" id="orderEdit--${item.firebaseKey}">Edit</a>
-    <a href="#" class="card-link" id="deleteOrder--${item.firebaseKey}">Delete</a>
+    ${item.statusOpen ? `<a href="#" class="card-link" id="deleteOrder--${item.firebaseKey}">Delete</a>` : ''}
   </div>
 </div>
   `;

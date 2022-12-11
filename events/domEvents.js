@@ -1,6 +1,7 @@
 import { deleteOrder, getSingleOrder } from '../api/orderData';
 import viewOrders from '../functions/viewOrders';
 import createOrderPage from '../pages/createOrderPage';
+import viewOrderDetails from '../pages/viewOrderDetails';
 
 const domEvents = () => {
   document.querySelector('#main').addEventListener('click', (e) => {
@@ -14,7 +15,7 @@ const domEvents = () => {
       });
     }
     if (e.target.id.includes('orderDetails')) {
-      console.warn('details', firebaseKey);
+      viewOrderDetails();
     }
   });
 };
