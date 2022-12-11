@@ -11,7 +11,6 @@ const submitOrder = (e) => {
     statusOpen: true,
     items: ''
   };
-  console.warn(payload);
   postOrder(payload).then(({ name }) => {
     const patchPayload = { firebaseKey: name };
     patchOrder(patchPayload).then(viewOrders);
