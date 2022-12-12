@@ -7,6 +7,7 @@ const submitOrder = () => {
     phone: document.querySelector('#createOrderPhone').value,
     email: document.querySelector('#createOrderEmail').value,
     orderType: document.querySelector('#createOrderSelect').value,
+    total: 0,
     statusOpen: true
   };
   postOrder(payload).then(({ name }) => {
