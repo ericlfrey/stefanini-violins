@@ -15,7 +15,6 @@ const formEvents = () => {
         phone: document.querySelector('#createOrderPhone').value,
         email: document.querySelector('#createOrderEmail').value,
         orderType: document.querySelector('#createOrderSelect').value,
-        statusOpen: true,
         firebaseKey
       };
       patchOrder(payload).then(viewOrders);

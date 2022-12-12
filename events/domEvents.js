@@ -15,7 +15,7 @@ const domEvents = () => {
       });
     }
     if (e.target.id.includes('orderDetails')) {
-      viewOrderDetails();
+      viewOrderDetails(e);
     }
   });
 };
