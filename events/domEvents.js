@@ -1,3 +1,4 @@
+import { getItemsByOrderId } from '../api/itemData';
 import { deleteOrder, getSingleOrder } from '../api/orderData';
 import viewOrders from '../functions/viewOrders';
 import createOrderPage from '../pages/createOrderPage';
@@ -15,7 +16,9 @@ const domEvents = () => {
       });
     }
     if (e.target.id.includes('orderDetails')) {
-      viewOrderDetails(e);
+      getItemsByOrderId().then((arr) => {
+        viewOrderDetails(firebaseKey, arr);
+      });
     }
   });
 };
