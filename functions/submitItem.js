@@ -1,4 +1,4 @@
-import { patchItem, postItem } from '../api/itemData';
+import { getItemsByOrderId, patchItem, postItem } from '../api/itemData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 
 const submitItem = (firebaseKey) => {
@@ -12,7 +12,9 @@ const submitItem = (firebaseKey) => {
       firebaseKey: name
     };
     patchItem(patchPayload).then(() => {
-      viewOrderDetails(firebaseKey);
+      getItemsByOrderId(firebaseKey).then((arr) => {
+        viewOrderDetails(firebaseKey, arr);
+      });
     });
   });
 };

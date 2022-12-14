@@ -15,6 +15,9 @@ const formEvents = () => {
       const [, firebaseKey] = e.target.id.split('--');
       submitItem(firebaseKey);
     }
+    if (e.target.id.includes('updateItemForm')) {
+      console.warn('update item');
+    }
   });
 };
 

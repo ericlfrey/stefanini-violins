@@ -45,7 +45,8 @@ body {
   width: 100%;
 }
 
-#orderCards {
+#orderCards,
+#itemCardsContainer {
   width: 90%;
   display: flex;
   flex-flow: row wrap;

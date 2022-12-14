@@ -26,7 +26,7 @@ const viewOrderDetails = (firebaseKey, arr = []) => {
           <h5 class="card-title">${item.itemName}</h5>
           <p class="card-text">${item.price}</p>
           <a href="#" class="card-link" id="itemEdit--${item.firebaseKey}">Edit</a>
-          ${item.statusOpen ? `<a href="#" class="card-link" id="deleteItem--${item.firebaseKey}">Delete</a>` : ''}
+          <a href="#" class="card-link" id="deleteItem--${item.firebaseKey}">Delete</a>
         </div>
       </div>
         `;
