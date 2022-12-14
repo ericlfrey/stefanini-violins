@@ -1,4 +1,6 @@
+import { getItemsByOrderId } from '../api/itemData';
 import { deleteOrder, getSingleOrder } from '../api/orderData';
+import deleteItemCard from '../functions/deleteItemCard';
 import viewOrders from '../functions/viewOrders';
 import createOrderPage from '../pages/createOrderPage';
 import viewOrderDetails from '../pages/viewOrderDetails';
@@ -15,7 +17,15 @@ const domEvents = () => {
       });
     }
     if (e.target.id.includes('orderDetails')) {
-      viewOrderDetails(e);
+      getItemsByOrderId(firebaseKey).then((arr) => {
+        viewOrderDetails(firebaseKey, arr);
+      });
+    }
+    if (e.target.id.includes('itemEdit')) {
+      console.warn('itemEdit', firebaseKey);
+    }
+    if (e.target.id.includes('deleteItem')) {
+      deleteItemCard(firebaseKey);
     }
   });
 };

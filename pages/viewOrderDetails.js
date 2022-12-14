@@ -5,9 +5,8 @@ import button from '../components/button';
 import createItemPage from './createItemPage';
 import closeOrderPage from './closeOrderPage';
 
-const viewOrderDetails = (e) => {
+const viewOrderDetails = (firebaseKey, arr = []) => {
   clearDOM();
-  const [, firebaseKey] = e.target.id.split('--');
   getSingleOrder(firebaseKey).then((obj) => {
     const domString = `
     <h1>Total: $${obj.total}</h1>
@@ -18,7 +17,26 @@ const viewOrderDetails = (e) => {
     </div>
   `;
     renderToDOM('#main', domString);
-    button('#addItemBtnContainer', 'button', 'btn btn-success', 'addItemBtn', 'Add Item', createItemPage);
+    if (arr.length > 0) {
+      let cardString = '';
+      arr.forEach((item) => {
+        cardString += `
+        <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">${item.itemName}</h5>
+          <p class="card-text">${item.price}</p>
+          <a href="#" class="card-link" id="itemEdit--${item.firebaseKey}">Edit</a>
+          <a href="#" class="card-link" id="deleteItem--${item.firebaseKey}">Delete</a>
+        </div>
+      </div>
+        `;
+        renderToDOM('#itemCardsContainer', cardString);
+      });
+    }
+
+    button('#addItemBtnContainer', 'button', 'btn btn-success', 'addItemBtn', 'Add Item', () => {
+      createItemPage(obj);
+    });
     button('#goToPaymentBtnContainer', 'button', 'btn btn-primary', 'goToPaymentBtn', 'Go To Payment', closeOrderPage);
   });
 };

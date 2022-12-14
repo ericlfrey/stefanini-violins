@@ -19,11 +19,11 @@ const welcomePage = (user) => {
   `;
   renderToDOM('#main', domString);
   // VIEW ORDERS
-  button('#viewOrdersBtnDiv', 'button', 'btn btn-success welcome-pg-btn', 'viewOrdersBtn', 'View Orders', viewOrders);
+  button('#viewOrdersBtnDiv', 'button', 'btn btn-success welcome-pg-btn mt-2', 'viewOrdersBtn', 'View Orders', viewOrders);
   // CREATE ORDER
-  button('#createOrderBtnDiv', 'button', 'btn btn-info welcome-pg-btn', 'createOrderBtn', 'Create Order', createOrderPage);
+  button('#createOrderBtnDiv', 'button', 'btn btn-info welcome-pg-btn mt-2', 'createOrderBtn', 'Create Order', createOrderPage);
   // VIEW REVENUE
-  button('#viewRevenueBtnDiv', 'button', 'btn btn-warning welcome-pg-btn', 'viewRevenueBtn', 'View Revenue', viewRevenue);
+  button('#viewRevenueBtnDiv', 'button', 'btn btn-warning welcome-pg-btn mt-2', 'viewRevenueBtn', 'View Revenue', viewRevenue);
 };
 
 export default welcomePage;

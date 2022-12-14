@@ -70,6 +70,26 @@ const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getItemsByOrderId = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/items.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const items = Object.values(data);
+        const filteredItems = items.filter((item) => item.orderId === firebaseKey);
+        resolve(filteredItems);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 export {
-  getAllItems, getSingleItem, postItem, patchItem, deleteItem
+  getAllItems, getSingleItem, postItem, patchItem, deleteItem, getItemsByOrderId
 };
