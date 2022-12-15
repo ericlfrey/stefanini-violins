@@ -10,7 +10,8 @@ const viewOrderDetails = (firebaseKey, arr = []) => {
   getOrderTotal(firebaseKey).then((orderTotal) => {
     getSingleOrder(firebaseKey).then((obj) => {
       const domString = `
-      <h1>Total: ${orderTotal}</h1>
+      <h1>Order Name: ${obj.name}</h1>
+      <h1>Order Total: ${orderTotal}</h1>
       <div id="itemCardsContainer"></div>
       <div id="orderDetailsPageBtns">
         <span id="addItemBtnContainer"></span>
@@ -26,21 +27,23 @@ const viewOrderDetails = (firebaseKey, arr = []) => {
           <div class="card-body">
             <h5 class="card-title">${item.itemName}</h5>
             <p class="card-text">${Number(item.price).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</p>
+            ${obj.statusOpen ? `
             <a href="#" class="card-link" id="itemEdit--${item.firebaseKey}">Edit</a>
-            <a href="#" class="card-link" id="deleteItem--${item.firebaseKey}">Delete</a>
+            <a href="#" class="card-link" id="deleteItem--${item.firebaseKey}">Delete</a>` : ''}
           </div>
         </div>
           `;
           renderToDOM('#itemCardsContainer', cardString);
         });
       }
-
-      button('#addItemBtnContainer', 'button', 'btn btn-success', 'addItemBtn', 'Add Item', () => {
-        createItemPage(obj);
-      });
-      button('#goToPaymentBtnContainer', 'button', 'btn btn-primary', 'goToPaymentBtn', 'Go To Payment', () => {
-        closeOrderPage(firebaseKey);
-      });
+      if (obj.statusOpen) {
+        button('#addItemBtnContainer', 'button', 'btn btn-success', 'addItemBtn', 'Add Item', () => {
+          createItemPage(obj);
+        });
+        button('#goToPaymentBtnContainer', 'button', 'btn btn-primary', 'goToPaymentBtn', 'Go To Payment', () => {
+          closeOrderPage(firebaseKey);
+        });
+      }
     });
   });
 };
