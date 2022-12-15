@@ -1,19 +1,15 @@
-import { getOrderTotal, getSingleOrder } from '../api/orderData';
+import { getSingleOrder, patchOrder } from '../api/orderData';
+import submitRevenue from './submitRevenue';
 
 const closeOrder = (e) => {
-  const [, firebasekey] = e.target.id.split('--');
-  getSingleOrder(firebasekey).then((obj) => {
-    console.warn(obj);
-    getOrderTotal(firebasekey).then((total) => {
-      const payload = {
-        date: new Date().toLocaleString('en-US'),
-        orderId: obj.firebaseKey,
-        orderType: obj.orderType,
-        paymentType: document.querySelector('#paymentSelect').value,
-        tip: document.querySelector('#tipInput').value,
-        total
-      };
-      console.warn(payload);
+  const [, firebaseKey] = e.target.id.split('--');
+  getSingleOrder(firebaseKey).then(() => {
+    const payload = {
+      statusOpen: false,
+      firebaseKey
+    };
+    patchOrder(payload).then(() => {
+      submitRevenue(firebaseKey);
     });
   });
 };
