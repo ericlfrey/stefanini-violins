@@ -70,6 +70,40 @@ const deleteRevenue = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getRevenueDetails = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/revenue.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const dataArr = Object.values(data);
+        const totalRevenue = dataArr.map((item) => Number(item.total)).reduce((a, b) => a + b, 0);
+        const totalTips = dataArr.map((item) => Number(item.tip)).reduce((a, b) => a + b, 0);
+        const combinedRevenue = totalRevenue + totalTips;
+        const revObj = {
+          combinedRevenue,
+          totalRevenue: totalRevenue.toString(),
+          totalTips: totalTips.toString(),
+          walkInOrders: dataArr.filter((item) => item.orderType === 'In Person').length,
+          callInOrders: dataArr.filter((item) => item.orderType === 'Phone').length,
+          cashOrders: dataArr.filter((item) => item.paymentType === 'Cash').length,
+          checkOrders: dataArr.filter((item) => item.paymentType === 'Check').length,
+          creditOrders: dataArr.filter((item) => item.paymentType === 'Credit').length,
+          debitOrders: dataArr.filter((item) => item.paymentType === 'Debit').length,
+          mobileOrders: dataArr.filter((item) => item.paymentType === 'Mobile').length
+        };
+        resolve(revObj);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 export {
-  getAllRevenue, getSingleRevenue, patchRevenue, postRevenue, deleteRevenue
+  getAllRevenue, getSingleRevenue, patchRevenue, postRevenue, deleteRevenue, getRevenueDetails
 };

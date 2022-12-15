@@ -1,6 +1,6 @@
 import viewOrders from '../functions/viewOrders';
-import viewRevenue from '../functions/viewRevenue';
 import createOrderPage from '../pages/createOrderPage';
+import viewRevenuePage from '../pages/viewRevenuePage';
 import welcomePage from '../pages/welcomePage';
 import renderToDom from '../utils/renderToDOM';
 import image from './image';
@@ -36,7 +36,7 @@ const navBar = (user) => {
   // CREATE ORDER
   navLink('#navCreateOrder', 'Create Orders', 'navCreateOrderLink', createOrderPage);
   // REVENUE
-  navLink('#navViewRevenue', 'View Revenue', 'navViewRevenueLink', viewRevenue);
+  navLink('#navViewRevenue', 'View Revenue', 'navViewRevenueLink', viewRevenuePage);
   // SEARCH BAR
   searchBar();
 };
