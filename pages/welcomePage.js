@@ -1,9 +1,9 @@
 import button from '../components/button';
 import viewOrders from '../functions/viewOrders';
-import viewRevenue from '../functions/viewRevenue';
 import clearDOM from '../utils/clearDOM';
 import renderToDOM from '../utils/renderToDOM';
 import createOrderPage from './createOrderPage';
+import viewRevenuePage from './viewRevenuePage';
 
 const welcomePage = (user) => {
   clearDOM();
@@ -23,7 +23,7 @@ const welcomePage = (user) => {
   // CREATE ORDER
   button('#createOrderBtnDiv', 'button', 'btn btn-info welcome-pg-btn mt-2', 'createOrderBtn', 'Create Order', createOrderPage);
   // VIEW REVENUE
-  button('#viewRevenueBtnDiv', 'button', 'btn btn-warning welcome-pg-btn mt-2', 'viewRevenueBtn', 'View Revenue', viewRevenue);
+  button('#viewRevenueBtnDiv', 'button', 'btn btn-warning welcome-pg-btn mt-2', 'viewRevenueBtn', 'View Revenue', viewRevenuePage);
 };
 
 export default welcomePage;
