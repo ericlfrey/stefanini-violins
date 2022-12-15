@@ -20,7 +20,7 @@ const createItemPage = (obj = {}) => {
   `;
   // divId, type, inputClass, placeholder, id, required, label, value
   renderToDOM('#createItemFormContainer', formString);
-  input('#createItemNameDiv', 'text', 'form-control', 'Item Name', 'createItemName', 'required', true, `${obj.itemName ? `${obj.name}` : ''}`);
+  input('#createItemNameDiv', 'text', 'form-control', 'Item Name', 'createItemName', 'required', true, `${obj.itemName ? `${obj.itemName}` : ''}`);
   input('#createItemPriceDiv', 'phone', 'form-control', 'Item Price', 'createItemPrice', 'required', true, `${obj.price ? `${obj.price}` : ''}`);
   button('#createItemFormBtn', 'submit', 'btn btn-primary', '', 'Submit', '');
 };

@@ -1,3 +1,5 @@
+import closeOrder from '../functions/closeOrder';
+import editItem from '../functions/editItem';
 import editOrder from '../functions/editOrder';
 import submitItem from '../functions/submitItem';
 import submitOrder from '../functions/submitOrder';
@@ -12,11 +14,13 @@ const formEvents = () => {
       editOrder(e);
     }
     if (e.target.id.includes('createItemForm')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      submitItem(firebaseKey);
+      submitItem(e);
     }
     if (e.target.id.includes('updateItemForm')) {
-      console.warn('update item');
+      editItem(e);
+    }
+    if (e.target.id.includes('paymentForm')) {
+      closeOrder(e);
     }
   });
 };

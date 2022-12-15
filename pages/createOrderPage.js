@@ -11,8 +11,7 @@ const createOrderPage = (obj = {}) => {
     <div id="createOrderFormContainer"></div>
   `;
   renderToDOM('#formContainer', domString);
-  let formString = '';
-  formString += `
+  const formString = `
   <form id="${obj.firebaseKey ? `updateOrderForm--${obj.firebaseKey}` : 'createOrderForm'}">
   <div class="mb-3" id="createOrderNameDiv"></div>
   <div class="mb-3" id="createOrderPhoneDiv"></div>
