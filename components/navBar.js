@@ -5,6 +5,7 @@ import welcomePage from '../pages/welcomePage';
 import renderToDom from '../utils/renderToDOM';
 import image from './image';
 import navLink from './navLink';
+import orderDrop from './orderDrop';
 import searchBar from './searchBar';
 
 const navBar = (user) => {
@@ -20,6 +21,7 @@ const navBar = (user) => {
         <li class="nav-item" id="navViewOrders"></li>
         <li class="nav-item" id="navCreateOrder"></li>
         <li class="nav-item" id="navViewRevenue"></li>
+        <li class="nav-item dropdown" id="navOrderDrop"></li>
         <li class="nav-item" id="navSearch"></li>
         <li class="nav-item" id="logoutBtn"></li>
       </ul>
@@ -39,6 +41,8 @@ const navBar = (user) => {
   navLink('#navViewRevenue', 'View Revenue', 'navViewRevenueLink', viewRevenuePage);
   // SEARCH BAR
   searchBar();
+  // FILTER DROP
+  orderDrop();
 };
 
 export default navBar;

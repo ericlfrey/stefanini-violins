@@ -1,6 +1,8 @@
+import clearDOM from '../utils/clearDOM';
 import renderToDOM from '../utils/renderToDOM';
 
 const viewOrdersPage = (arr) => {
+  clearDOM();
   const domString = `
     <h1>View Orders Page</h1>
     <div id="orderCards"></div>
