@@ -91,6 +91,44 @@ const getOrderTotal = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getOpenOrders = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const openOrders = Object.values(data).filter((item) => item.statusOpen);
+        resolve(openOrders);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
+const getClosedOrders = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/orders.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const closedOrders = Object.values(data).filter((item) => !item.statusOpen);
+        resolve(closedOrders);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 export {
-  getAllOrders, getSingleOrder, patchOrder, postOrder, deleteOrder, getOrderTotal
+  getAllOrders, getSingleOrder, patchOrder, postOrder, deleteOrder, getOrderTotal, getOpenOrders, getClosedOrders
 };
